@@ -1,0 +1,10 @@
+cmake_minimum_required(VERSION 3.21.0)
+
+project(cdps LANGUAGES C CXX)
+
+set(CMAKE_CXX_STANDARD 11)
+set(CMAKE_CXX_STANDARD_REQUIRED ON)
+set(CMAKE_SUPPRESS_REGENERATION ON)
+set(CMAKE_OSX_ARCHITECTURES "arm64")
+
+add_subdirectory(src)
