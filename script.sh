@@ -3,8 +3,8 @@
 clean() {
   rm -rf build
   rm -rf CMakeFiles
-  rm cmake_install.cmake
-  rm CMakeCache.txt
+  rm -f cmake_install.cmake
+  rm -f CMakeCache.txt
 }
 
 build() {
