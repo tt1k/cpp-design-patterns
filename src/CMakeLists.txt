@@ -1,5 +1,5 @@
-add_executable(cdps main.cpp)
+include_directories(cdps)
+add_subdirectory(cdps)
 
-include_directories(patterns)
-add_subdirectory(patterns)
-target_link_libraries(cdps patterns)
+include_directories(demo)
+add_subdirectory(demo)

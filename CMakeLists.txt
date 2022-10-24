@@ -7,4 +7,5 @@ set(CMAKE_CXX_STANDARD_REQUIRED ON)
 set(CMAKE_SUPPRESS_REGENERATION ON)
 set(CMAKE_OSX_ARCHITECTURES "arm64")
 
+include_directories(src)
 add_subdirectory(src)
