@@ -21,15 +21,18 @@ $(IOS_LIB_COMBINE): $(BUILD_DEPS)
 		-DCMAKE_OSX_ARCHITECTURES=arm64 \
 	)
 
+OUTPUT_LIBS = output/libs
+OUTPUT_HEADERS = output/headers
+
 .PHONY: ios-lib-combine
 ios-lib-combine: $(IOS_LIB_COMBINE)
 	set -o pipefail && cd $(IOS_LIB_COMBINE) && $(IOS_XCODEBUILD_LIB_DEVICE) && $(IOS_XCODEBUILD_LIB_SIMULATOR)
-	mkdir -p output/libs && mkdir -p output/headers && (lipo -create \
+	mkdir -p $(OUTPUT_LIBS) && mkdir -p $(OUTPUT_HEADERS) && (lipo -create \
 		build/ios/combine/src/cdps/Release-iphoneos/libcdps.a \
 		build/ios/combine/src/cdps/Release-iphonesimulator/libcdps.a \
-		-output output/libs/libcdps.a \
-		&& cp src/cdps/*.h output/headers \
-		&& lipo -info output/libs/libcdps.a \
+		-output $(OUTPUT_LIBS)/libcdps.a \
+		&& cp src/cdps/*.h $(OUTPUT_HEADERS) \
+		&& lipo -info $(OUTPUT_LIBS)/libcdps.a \
 	)
 
 .PHONY: xproj
