@@ -1,0 +1,4 @@
+#!/bin/sh
+
+echo "pre-commit testing"
+exit 1

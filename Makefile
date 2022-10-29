@@ -39,9 +39,13 @@ ios-lib-combine: $(IOS_LIB_COMBINE_PATH)
 
 IOS_PROJ_PATH = $(BUILD_ROOT_PATH)/ios
 .PHONY: iproj
-iproj:
+iproj: git-hooks-config
 	mkdir -p $(IOS_PROJ_PATH)
 	cd $(IOS_PROJ_PATH) && cmake -G Xcode ../../ && open cdps.xcodeproj
+
+.PHONY: git-hooks-config
+git-hooks-config:
+	git config core.hooksPath .git-hooks
 
 .PHONY: clean
 clean:
