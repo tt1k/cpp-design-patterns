@@ -46,6 +46,7 @@ iproj: git-hooks-config
 .PHONY: git-hooks-config
 git-hooks-config:
 	git config core.hooksPath .git-hooks
+	chmod +x .git-hooks/*
 
 .PHONY: clean
 clean:
