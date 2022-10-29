@@ -1,4 +1,4 @@
 #!/bin/sh
 
-echo "pre-commit testing"
-exit 1
+# auto format code with clang-format
+make format
