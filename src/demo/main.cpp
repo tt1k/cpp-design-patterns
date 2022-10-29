@@ -1,7 +1,15 @@
 #include <cdps/chain_of_responsibility.h>
 #include <cdps/singleton.h>
+#include <cdps/version.h>
 
 #include <iostream>
+
+#pragma mark - init
+
+void init_cdps() {
+  std::string version = cdps::version::get_version_in_cpp();
+  std::cout << "cdps " << version << " initialized" << std::endl;
+}
 
 #pragma mark - singleton
 
@@ -30,7 +38,7 @@ void test_singleton() {
 #pragma mark - main
 
 int main(int argc, char* argv[]) {
-  std::cout << "cdps" << std::endl;
+  init_cdps();
   test_singleton();
   return 0;
 }
