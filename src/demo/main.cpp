@@ -35,10 +35,22 @@ void test_chain_of_responsibility() {
   logger->log_message(cdps::log_level::log_level_error, "this is error");
 }
 
+#pragma mark - observer
+
+void test_observer() {
+  cdps::subject* sub = new cdps::subject();
+  new cdps::bin_observer(sub);
+  new cdps::oct_observer(sub);
+  new cdps::hex_observer(sub);
+
+  sub->set_state(10);
+  sub->set_state(15);
+}
+
 #pragma mark - main
 
 int main(int argc, char* argv[]) {
   init_cdps();
-  test_chain_of_responsibility();
+  test_observer();
   return 0;
 }
