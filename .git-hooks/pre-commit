@@ -1,4 +1,25 @@
 #!/bin/sh
 
 # auto format code with clang-format
-make format
+make format &> /dev/null
+echo "Code format done."
+
+# detect not staged changes make by clang-format
+has_not_staged_changes=false
+while read line
+do
+  # MM means not staged changes
+  if [[ $line == MM* ]]; then
+    echo $line
+    has_not_staged_changes=true
+  fi
+# using <<< to make read line command runs in main shell process
+# https://stackoverflow.com/a/16854326/12213979
+done <<< "$(git status --untracked-files=no --porcelain)"
+
+if [[ "$has_not_staged_changes" = true ]]; then
+  echo "Not staged changes detected, add them and commit again."
+  exit 1
+else 
+  echo "Working directory clean, great work!"
+fi

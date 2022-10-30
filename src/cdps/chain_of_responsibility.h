@@ -11,15 +11,15 @@ class logger {
  public:
   log_level level;
 
-  virtual void write(std::string message);
+  // = 0 tells the compiler that this method must be overridden by a derived class
+  virtual void write(std::string message) = 0;
   void set_next(logger* next) {
     next_logger = next;
   }
   void log_message(log_level l, std::string message) {
     if (level <= l) {
       write(message);
-    }
-    if (!next_logger) {
+    } else if (next_logger) {
       next_logger->log_message(l, message);
     }
   }
