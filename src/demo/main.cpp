@@ -53,13 +53,13 @@ void test_decorator() {
   cdps::circle_shape* circle = new cdps::circle_shape();
   circle->draw();
 
-  cdps::red_shape_decorator* circle_decorator = new cdps::red_shape_decorator(circle);
+  cdps::shape_decorator* circle_decorator = new cdps::red_shape_decorator(circle);
   circle_decorator->draw();
 
   cdps::rectangle_shape* rectangle = new cdps::rectangle_shape();
   rectangle->draw();
 
-  cdps::red_shape_decorator* rectangle_decorator = new cdps::red_shape_decorator(rectangle);
+  cdps::shape_decorator* rectangle_decorator = new cdps::red_shape_decorator(rectangle);
   rectangle_decorator->draw();
 }
 

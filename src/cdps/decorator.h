@@ -20,7 +20,7 @@ class rectangle_shape : public shape {
   }
 };
 
-class shape_decorator {
+class shape_decorator : public shape {
  public:
   cdps::shape* decorated_shape;
   shape_decorator(cdps::shape* shape) {
