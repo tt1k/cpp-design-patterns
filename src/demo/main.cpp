@@ -63,10 +63,18 @@ void test_decorator() {
   rectangle_decorator->draw();
 }
 
+#pragma mark - visitor
+
+void test_visitor() {
+  cdps::computer_protocol* computer = new cdps::computer();
+  cdps::computer_part_display_visitor* visitor = new cdps::computer_part_display_visitor();
+  computer->accept(visitor);
+}
+
 #pragma mark - main
 
 int main(int argc, char* argv[]) {
   init_cdps();
-  test_decorator();
+  test_visitor();
   return 0;
 }
