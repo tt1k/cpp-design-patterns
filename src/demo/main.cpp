@@ -71,10 +71,18 @@ void test_visitor() {
   computer->accept(visitor);
 }
 
+#pragma mark - facade
+
+void test_facade() {
+  cdps::shape_maker* makder = new cdps::shape_maker();
+  makder->draw_circle();
+  makder->draw_rectangle();
+}
+
 #pragma mark - main
 
 int main(int argc, char* argv[]) {
   init_cdps();
-  test_visitor();
+  test_facade();
   return 0;
 }
