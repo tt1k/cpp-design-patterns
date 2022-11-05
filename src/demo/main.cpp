@@ -89,10 +89,22 @@ void test_factory() {
   rectangle->draw();
 }
 
+#pragma mark - bridge
+
+void test_bridge() {
+  cdps::implementor* impl_a = new cdps::concrete_implementor_a();
+  cdps::implementor* impl_b = new cdps::concrete_implementor_b();
+  cdps::abstraction* abstract = nullptr;
+  abstract = new cdps::refined_abstraction(impl_a);
+  abstract->operation();
+  abstract = new cdps::refined_abstraction(impl_b);
+  abstract->operation();
+}
+
 #pragma mark - main
 
 int main(int argc, char* argv[]) {
   init_cdps();
-  test_factory();
+  test_bridge();
   return 0;
 }
