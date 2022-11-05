@@ -59,7 +59,12 @@ class keyboard : public computer_protocol {
 class computer : public computer_protocol {
  public:
   computer() {
-    parts = {new cdps::mouse(), new cdps::monitor(), new cdps::keyboard()};
+    // this line cause Error: Expected expression
+    // but it works in the first place
+    // parts = {new cdps::mouse(), new cdps::monitor(), new cdps::keyboard()};
+    parts.push_back(new cdps::mouse());
+    parts.push_back(new cdps::monitor());
+    parts.push_back(new cdps::keyboard());
   }
   void accept(cdps::computer_part_visitor* visitor) override {
     for (auto& part : parts) {

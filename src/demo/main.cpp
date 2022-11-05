@@ -79,10 +79,20 @@ void test_facade() {
   makder->draw_rectangle();
 }
 
+#pragma mark - factory
+
+void test_factory() {
+  cdps::shape_factory* factory = new cdps::shape_factory();
+  cdps::shape* circle = factory->get_shape(cdps::shape_type::circle);
+  circle->draw();
+  cdps::shape* rectangle = factory->get_shape(cdps::shape_type::rectangle);
+  rectangle->draw();
+}
+
 #pragma mark - main
 
 int main(int argc, char* argv[]) {
   init_cdps();
-  test_facade();
+  test_factory();
   return 0;
 }
