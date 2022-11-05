@@ -4,6 +4,7 @@
 #include <cdps/facade.h>
 #include <cdps/factory.h>
 #include <cdps/observer.h>
+#include <cdps/proxy.h>
 #include <cdps/singleton.h>
 #include <cdps/version.h>
 #include <cdps/visitor.h>

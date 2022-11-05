@@ -101,10 +101,17 @@ void test_bridge() {
   abstract->operation();
 }
 
+#pragma mark - proxy
+
+void test_proxy() {
+  cdps::proxy* obj = new cdps::proxy();
+  obj->operation();
+}
+
 #pragma mark - main
 
 int main(int argc, char* argv[]) {
   init_cdps();
-  test_bridge();
+  test_proxy();
   return 0;
 }
