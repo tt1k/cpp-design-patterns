@@ -5,6 +5,7 @@
 #include <cdps/factory.h>
 #include <cdps/fly_weight.h>
 #include <cdps/observer.h>
+#include <cdps/prototype.h>
 #include <cdps/proxy.h>
 #include <cdps/singleton.h>
 #include <cdps/version.h>

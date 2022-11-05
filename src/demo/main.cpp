@@ -117,10 +117,23 @@ void test_fly_weight() {
   factory->get_flyweight_item(1)->operation();
 }
 
+#pragma mark - prototype
+
+cdps::prototype* cdps::prototype_client::types[2];
+int cdps::prototype_client::types_count = 2;
+
+void test_prototype() {
+  cdps::prototype_client::init();
+  cdps::prototype* a = cdps::prototype_client::make(0);
+  std::cout << a->type() << std::endl;
+  cdps::prototype* b = cdps::prototype_client::make(1);
+  std::cout << b->type() << std::endl;
+}
+
 #pragma mark - main
 
 int main(int argc, char* argv[]) {
   init_cdps();
-  test_fly_weight();
+  test_prototype();
   return 0;
 }
