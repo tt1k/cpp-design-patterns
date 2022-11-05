@@ -108,10 +108,19 @@ void test_proxy() {
   obj->operation();
 }
 
+#pragma mark - fly_weight
+
+void test_fly_weight() {
+  cdps::flyweight_factory* factory = new cdps::flyweight_factory();
+  factory->get_flyweight_item(1)->operation();
+  factory->get_flyweight_item(2)->operation();
+  factory->get_flyweight_item(1)->operation();
+}
+
 #pragma mark - main
 
 int main(int argc, char* argv[]) {
   init_cdps();
-  test_proxy();
+  test_fly_weight();
   return 0;
 }

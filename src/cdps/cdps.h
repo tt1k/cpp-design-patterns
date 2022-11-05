@@ -3,6 +3,7 @@
 #include <cdps/decorator.h>
 #include <cdps/facade.h>
 #include <cdps/factory.h>
+#include <cdps/fly_weight.h>
 #include <cdps/observer.h>
 #include <cdps/proxy.h>
 #include <cdps/singleton.h>
