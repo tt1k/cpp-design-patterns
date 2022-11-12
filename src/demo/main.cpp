@@ -130,10 +130,23 @@ void test_prototype() {
   std::cout << b->type() << std::endl;
 }
 
+#pragma mark - composite
+
+void test_composite() {
+  cdps::composite* composite = new cdps::composite();
+  for (int i = 0; i < 5; i++) {
+    cdps::leaf* child = new cdps::leaf(i);
+    composite->add(child);
+  }
+
+  composite->remove(2);
+  composite->operation();
+}
+
 #pragma mark - main
 
 int main(int argc, char* argv[]) {
   init_cdps();
-  test_prototype();
+  test_composite();
   return 0;
 }

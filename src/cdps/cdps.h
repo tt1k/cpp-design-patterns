@@ -1,5 +1,6 @@
 #include <cdps/bridge.h>
 #include <cdps/chain_of_responsibility.h>
+#include <cdps/composite.h>
 #include <cdps/decorator.h>
 #include <cdps/facade.h>
 #include <cdps/factory.h>
