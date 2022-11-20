@@ -81,12 +81,53 @@ void test_facade() {
 
 #pragma mark - factory
 
+void test_single_factory() {
+  cdps::simple_factory* factory = new cdps::simple_factory();
+
+  cdps::phone* apple = factory->get_phone("apple");
+  apple->use();
+
+  cdps::phone* huawei = factory->get_phone("huawei");
+  huawei->use();
+}
+
+void test_factory_method() {
+  cdps::factory* factory;
+
+  factory = new cdps::factory_apple();
+  cdps::phone* apple = factory->factory_method();
+  apple->use();
+
+  factory = new cdps::factory_huawei();
+  cdps::phone* huawei = factory->factory_method();
+  huawei->use();
+}
+
+void test_abstract_factory() {
+  cdps::abstract_factory* factory;
+  cdps::car* car;
+  cdps::phone* phone;
+
+  factory = new cdps::apple_factory();
+  car = factory->abstract_car();
+  car->drive();
+  phone = factory->abstract_phone();
+  phone->use();
+
+  factory = new cdps::huawei_factory();
+  car = factory->abstract_car();
+  car->drive();
+  phone = factory->abstract_phone();
+  phone->use();
+}
+
 void test_factory() {
-  cdps::shape_factory* factory = new cdps::shape_factory();
-  cdps::shape* circle = factory->get_shape(cdps::shape_type::circle);
-  circle->draw();
-  cdps::shape* rectangle = factory->get_shape(cdps::shape_type::rectangle);
-  rectangle->draw();
+  std::cout << "[note]: single_factory" << std::endl;
+  test_single_factory();
+  std::cout << "\n[note]: factory_method" << std::endl;
+  test_factory_method();
+  std::cout << "\n[note]: abstract_factory" << std::endl;
+  test_abstract_factory();
 }
 
 #pragma mark - bridge
@@ -164,6 +205,6 @@ void test_adapter() {
 
 int main(int argc, char* argv[]) {
   init_cdps();
-  test_adapter();
+  test_factory();
   return 0;
 }
