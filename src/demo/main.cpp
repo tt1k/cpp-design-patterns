@@ -143,10 +143,27 @@ void test_composite() {
   composite->operation();
 }
 
+#pragma mark - adapter
+
+void test_class_adapter() {
+  cdps::class_target* target = new cdps::class_adapter();
+  target->request();
+}
+
+void test_object_adapter() {
+  cdps::object_target* target = new cdps::object_adapter();
+  target->request();
+}
+
+void test_adapter() {
+  test_class_adapter();
+  test_object_adapter();
+}
+
 #pragma mark - main
 
 int main(int argc, char* argv[]) {
   init_cdps();
-  test_composite();
+  test_adapter();
   return 0;
 }
