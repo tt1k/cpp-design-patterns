@@ -201,10 +201,23 @@ void test_adapter() {
   test_object_adapter();
 }
 
+#pragma mark - builder
+
+void test_builder() {
+  cdps::director* director = new cdps::director(new cdps::apple_builder());
+
+  cdps::house* house = director->make();
+  house->show();
+
+  director->change_builder(new cdps::huawei_builder());
+  house = director->make();
+  house->show();
+}
+
 #pragma mark - main
 
 int main(int argc, char* argv[]) {
   init_cdps();
-  test_factory();
+  test_builder();
   return 0;
 }
