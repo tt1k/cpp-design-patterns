@@ -214,10 +214,34 @@ void test_builder() {
   house->show();
 }
 
+#pragma mark - filter
+
+void test_filter() {
+  std::vector<cdps::person*> list;
+  list.push_back(new cdps::person(1, "Allen", cdps::country_usa));
+  list.push_back(new cdps::person(0, "Targaryen", cdps::country_usa));
+  list.push_back(new cdps::person(1, "Stark", cdps::country_usa));
+  list.push_back(new cdps::person(1, "Xi", cdps::country_china));
+
+  cdps::person_filter* male_filter = new cdps::person_filter_male();
+  std::vector<cdps::person*> males = male_filter->fit_filter(list);
+  std::cout << "males:" << std::endl;
+  for (auto& item : males) {
+    std::cout << item->name << std::endl;
+  }
+
+  cdps::person_filter* use_filter = new cdps::person_filter_usa();
+  std::vector<cdps::person*> usas = use_filter->fit_filter(list);
+  std::cout << "usas:" << std::endl;
+  for (auto& item : usas) {
+    std::cout << item->name << std::endl;
+  }
+}
+
 #pragma mark - main
 
 int main(int argc, char* argv[]) {
   init_cdps();
-  test_builder();
+  test_filter();
   return 0;
 }

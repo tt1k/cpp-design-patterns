@@ -6,6 +6,7 @@
 #include <cdps/decorator.h>
 #include <cdps/facade.h>
 #include <cdps/factory.h>
+#include <cdps/filter.h>
 #include <cdps/fly_weight.h>
 #include <cdps/observer.h>
 #include <cdps/prototype.h>
