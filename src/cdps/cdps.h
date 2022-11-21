@@ -2,6 +2,7 @@
 #include <cdps/bridge.h>
 #include <cdps/builder.h>
 #include <cdps/chain_of_responsibility.h>
+#include <cdps/command.h>
 #include <cdps/composite.h>
 #include <cdps/decorator.h>
 #include <cdps/facade.h>

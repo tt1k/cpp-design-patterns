@@ -238,10 +238,23 @@ void test_filter() {
   }
 }
 
+#pragma mark - command
+
+void test_command() {
+  cdps::receiver* receiver = new cdps::receiver();
+  cdps::command* add = new cdps::add_command(receiver);
+  cdps::command* sub = new cdps::sub_command(receiver);
+
+  cdps::invoker* invoker = new cdps::invoker();
+  invoker->set_command(add);
+  invoker->set_command(sub);
+  invoker->comfirm_command();
+}
+
 #pragma mark - main
 
 int main(int argc, char* argv[]) {
   init_cdps();
-  test_filter();
+  test_command();
   return 0;
 }
