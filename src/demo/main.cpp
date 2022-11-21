@@ -251,10 +251,29 @@ void test_command() {
   invoker->comfirm_command();
 }
 
+#pragma mark - interpreter
+
+void test_interpreter() {
+  cdps::expression* lhs = new cdps::terminal_expression("A");
+  cdps::expression* rhs = new cdps::terminal_expression("B");
+  cdps::expression* and_expr = new cdps::non_terminal_expression(lhs, rhs);
+
+  cdps::context* context = new cdps::context();
+  context->set_var("A", true);
+  context->set_var("B", true);
+  std::cout << "A " << context->get_var("A") << " AND B " << context->get_var("B") << " is " << and_expr->interpret(context) << std::endl;
+
+  context->set_var("B", false);
+  std::cout << "A " << context->get_var("A") << " AND B " << context->get_var("B") << " is " << and_expr->interpret(context) << std::endl;
+
+  context->set_var("A", false);
+  std::cout << "A " << context->get_var("A") << " AND B " << context->get_var("B") << " is " << and_expr->interpret(context) << std::endl;
+}
+
 #pragma mark - main
 
 int main(int argc, char* argv[]) {
   init_cdps();
-  test_command();
+  test_interpreter();
   return 0;
 }

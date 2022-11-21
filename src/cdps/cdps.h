@@ -9,6 +9,7 @@
 #include <cdps/factory.h>
 #include <cdps/filter.h>
 #include <cdps/fly_weight.h>
+#include <cdps/interpreter.h>
 #include <cdps/observer.h>
 #include <cdps/prototype.h>
 #include <cdps/proxy.h>
