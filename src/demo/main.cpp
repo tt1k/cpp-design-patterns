@@ -270,10 +270,23 @@ void test_interpreter() {
   std::cout << "A " << context->get_var("A") << " AND B " << context->get_var("B") << " is " << and_expr->interpret(context) << std::endl;
 }
 
+#pragma mark - iterator
+
+void test_iterator() {
+  cdps::int_container* container = new cdps::int_container();
+  container->push_back(1);
+  container->push_back(2);
+  container->push_back(3);
+
+  for (cdps::iterator* it = container->get_iterator(); it->has_next(); it->next()) {
+    std::cout << it->current_value() << std::endl;
+  }
+}
+
 #pragma mark - main
 
 int main(int argc, char* argv[]) {
   init_cdps();
-  test_interpreter();
+  test_iterator();
   return 0;
 }
