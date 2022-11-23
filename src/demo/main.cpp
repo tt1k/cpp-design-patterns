@@ -332,10 +332,24 @@ void test_state() {
   std::cout << context->description() << std::endl;
 }
 
+#pragma mark - strategy
+
+void test_strategy() {
+  cdps::strategy_op* add = new cdps::strategy_op_add();
+  cdps::strategy_op* sub = new cdps::strategy_op_sub();
+
+  cdps::strategy_context* context;
+  context = new cdps::strategy_context(add);
+  context->excute(10, 5);
+
+  context = new cdps::strategy_context(sub);
+  context->excute(10, 5);
+}
+
 #pragma mark - main
 
 int main(int argc, char* argv[]) {
   init_cdps();
-  test_state();
+  test_strategy();
   return 0;
 }
