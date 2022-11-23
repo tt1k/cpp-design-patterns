@@ -318,10 +318,24 @@ void test_memento() {
   std::cout << "second saved state: " << care_taker->get_memento(1)->state << std::endl;
 }
 
+#pragma mark - state
+
+void test_state() {
+  cdps::state_context* context = new cdps::state_context();
+
+  cdps::state* active = new cdps::active_state();
+  active->do_action(context);
+  std::cout << context->description() << std::endl;
+
+  cdps::state* inactive = new cdps::inactive_state();
+  inactive->do_action(context);
+  std::cout << context->description() << std::endl;
+}
+
 #pragma mark - main
 
 int main(int argc, char* argv[]) {
   init_cdps();
-  test_memento();
+  test_state();
   return 0;
 }
