@@ -12,6 +12,7 @@
 #include <cdps/interpreter.h>
 #include <cdps/iterator.h>
 #include <cdps/mediator.h>
+#include <cdps/memento.h>
 #include <cdps/observer.h>
 #include <cdps/prototype.h>
 #include <cdps/proxy.h>

@@ -300,10 +300,28 @@ void test_mediator() {
   c3->send("Hi, I'm C3");
 }
 
+#pragma mark - memento
+
+void test_memento() {
+  cdps::originator* ori = new cdps::originator();
+  cdps::care_taker* care_taker = new cdps::care_taker();
+
+  ori->set_state(100);
+  ori->set_state(200);
+  care_taker->add_memento(ori->save_memento());
+  ori->set_state(300);
+  care_taker->add_memento(ori->save_memento());
+  ori->set_state(400);
+
+  std::cout << "current state: " << ori->get_state() << std::endl;
+  std::cout << "first saved state: " << care_taker->get_memento(0)->state << std::endl;
+  std::cout << "second saved state: " << care_taker->get_memento(1)->state << std::endl;
+}
+
 #pragma mark - main
 
 int main(int argc, char* argv[]) {
   init_cdps();
-  test_mediator();
+  test_memento();
   return 0;
 }
