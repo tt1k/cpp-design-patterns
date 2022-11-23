@@ -19,5 +19,6 @@
 #include <cdps/singleton.h>
 #include <cdps/state.h>
 #include <cdps/strategy.h>
+#include <cdps/template_method.h>
 #include <cdps/version.h>
 #include <cdps/visitor.h>

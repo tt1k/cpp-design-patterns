@@ -346,10 +346,20 @@ void test_strategy() {
   context->excute(10, 5);
 }
 
+#pragma mark - template method
+
+void test_template_method() {
+  cdps::template_game* football = new cdps::football_game();
+  football->play();
+
+  cdps::template_game* cricket = new cdps::cricket_game();
+  cricket->play();
+}
+
 #pragma mark - main
 
 int main(int argc, char* argv[]) {
   init_cdps();
-  test_strategy();
+  test_template_method();
   return 0;
 }
