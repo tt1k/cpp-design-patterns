@@ -283,10 +283,27 @@ void test_iterator() {
   }
 }
 
+#pragma mark - mediator
+
+void test_mediator() {
+  cdps::mediator* mediator = new cdps::concrete_mediator();
+
+  cdps::colleague* c1 = new cdps::concrete_colleague(mediator, 1);
+  mediator->add(c1);
+  cdps::colleague* c2 = new cdps::concrete_colleague(mediator, 2);
+  mediator->add(c2);
+  cdps::colleague* c3 = new cdps::concrete_colleague(mediator, 3);
+  mediator->add(c3);
+
+  c1->send("Hi, I'm C1");
+  c2->send("Hi, I'm C2");
+  c3->send("Hi, I'm C3");
+}
+
 #pragma mark - main
 
 int main(int argc, char* argv[]) {
   init_cdps();
-  test_iterator();
+  test_mediator();
   return 0;
 }
